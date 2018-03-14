@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Boggle</string>
+    <string name="avail_letters">Available Letters</string>
+</resources>
