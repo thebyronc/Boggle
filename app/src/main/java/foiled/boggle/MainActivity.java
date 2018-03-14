@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         mSubmitUserInputButton.setOnClickListener(this);
-
+        mRandomButton.setOnClickListener(this);
         runGame();
 
     }
@@ -46,12 +46,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if( v == mSubmitUserInputButton) {
             String userInput = mUserInput.getText().toString();
             String[] inputArray = userInput.split("");
-
             Toast.makeText(MainActivity.this, userInput, Toast.LENGTH_LONG).show();
+        } if( v == mRandomButton) {
+           runGame();
         }
     }
 
     public void runGame() {
+        output.clear();
         for(int i = 0 ;output.size() < 8; i++){
             if (output.size() < 2) {
                 randomGenerator = new Random();
