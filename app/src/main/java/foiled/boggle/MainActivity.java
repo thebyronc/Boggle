@@ -37,6 +37,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
         mSubmitUserInputButton.setOnClickListener(this);
 
+        runGame();
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if( v == mSubmitUserInputButton) {
+            String userInput = mUserInput.getText().toString();
+            String[] inputArray = userInput.split("");
+
+            Toast.makeText(MainActivity.this, userInput, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void runGame() {
         for(int i = 0 ;output.size() < 8; i++){
             if (output.size() < 2) {
                 randomGenerator = new Random();
@@ -50,15 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Collections.shuffle(output);
         gridView = (GridView) findViewById(R.id.baseGridView);
         gridView.setAdapter(new AlphaAdapter(this, output));
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        if( v == mSubmitUserInputButton) {
-            String userInput = mUserInput.getText().toString();
-            Toast.makeText(MainActivity.this, userInput, Toast.LENGTH_LONG).show();
-        }
     }
 
 }
